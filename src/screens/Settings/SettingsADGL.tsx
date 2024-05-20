@@ -1,13 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const HomeScreenADGL = () => {
+export default function SettingsADGL() {
   return (
     <View>
-      <Text>HomeScreenADGL</Text>
+      <Text>SettingsADGL</Text>
     </View>
   )
 }
 
-export default HomeScreenADGL;
-
+const styles = StyleSheet.create({})

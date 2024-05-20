@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from "@/screens/Home"
+import Home from "@/screens/Home/HomeADGL"
 import "@/styles/global.css"
-import Routes from "@/routes/authroutes"
+import Navigation from '@/routes/StackNavigator';
 
 export default function App() {
   return (
-    <Routes/>
+    <Navigation/>
   );
 }
 

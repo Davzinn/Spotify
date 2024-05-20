@@ -1,10 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-export default function SearchScreenADGL() {
+export default function SearchADGL() {
   return (
     <View>
-      <Text>SearchScreenADGL</Text>
+      <Text>SearchADGL</Text>
     </View>
   )
 }
