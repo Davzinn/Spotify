@@ -1,31 +1,71 @@
-import { StyleSheet, Text, View , TouchableOpacity} from 'react-native'
-import React from 'react'
-import Noti from "./assets/Vector.svg"
-import Recentes from "@/screens/Home/assets/orientation lock.svg"
-import Config from "@/screens/Home/assets/Settings.svg"
-import Um from  "@/screens/Home/assets/Images/um"
-import Dois from "@/screens/Home/assets/Images/dois"
-import Tres from "@/screens/Home/assets/Images/tres"
-import Quatro from "@/screens/Home/assets/Images/quatro"
-import Cinco from "@/screens/Home/assets/Images/cinco"
-import Seis from "@/screens/Home/assets/Images/seis"
-import Cards from './Cards'
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native';
+import React from 'react';
+import Noti from "./assets/Vector.svg";
+import Recentes from "@/screens/Home/assets/orientation lock.svg";
+import Config from "@/screens/Home/assets/Settings.svg";
+import Cards from './CardsADGL';
+import ImagesADGL from './ImagesADGL';
+import { useNavigation } from '@react-navigation/native';
+import { StatusBar } from 'expo-status-bar';
 
 export default function Home() {
+  const navigation = useNavigation();
   return (
-    <View style={{backgroundColor:"#111111", flex:1}} >
-      <View className='flex-row justify-between ml-5 mt-16'>
-        <Text className='text-3xl text-white font-bold '>Boa Tarde</Text>
-        <View className='flex-row justify-evenly mr-5'>
-          <Noti width={30} height={30} style={{marginLeft:15}}/>
-          <Recentes width={30} height={30} style={{marginLeft:15}}/>
-          <TouchableOpacity>          
-            <Config width={30} height={30} style={{marginLeft:15}}/>
+    <ScrollView showsVerticalScrollIndicator={false} style={styles.container}>
+      <StatusBar style="light" />
+      <View style={styles.header}>
+        <Text style={styles.greeting}>Boa Tarde</Text>
+        <View style={styles.iconContainer}>
+          <Noti width={30} height={30} style={styles.icon} />
+          <Recentes width={30} height={30} style={styles.icon} />
+          <TouchableOpacity onPress={() => navigation.navigate("Config")}>
+            <Config width={30} height={30} style={styles.icon} />
           </TouchableOpacity>
         </View>
       </View>
-       <Cards/>
-      </View>
-      
-  )
+      <Cards />
+
+      <Text style={styles.sectionTitle}>Episodios para você</Text>
+      <ImagesADGL />
+
+      <Text style={styles.sectionTitle}>Recomendado para hoje</Text>
+      <ImagesADGL />
+
+      <Text style={styles.sectionTitle}>Mais Tocadas no Mundo</Text>
+      <ImagesADGL />
+    </ScrollView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#111111",
+    flex: 1,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 20,
+    marginTop: 75,
+    alignItems: 'center',
+  },
+  greeting: {
+    fontSize: 28,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+  iconContainer: {
+    flexDirection: 'row',
+  },
+  icon: {
+    marginLeft: 15,
+  },
+  sectionTitle: {
+    fontSize: 28,
+    color: 'white',
+    fontWeight: 'bold',
+    marginLeft: 20,
+    marginTop: 20,
+    marginBottom: 10,
+  },
+});

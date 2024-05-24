@@ -1,8 +1,6 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from "@/screens/Home/HomeADGL"
 import "@/styles/global.css"
-import Navigation from '@/routes/StackNavigator';
+import Navigation from '@/routes/StackNavigatorADGL';
 
 export default function App() {
   return (
